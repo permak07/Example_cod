@@ -12,6 +12,9 @@ def test_addition_with_bug():
     print("Test bug addition_with_bug")
     assert add_with_bug(6,7)==13 #fail
 
+def test_addition_duplicated():
+    assert add(2,3)==3+2
+
 if __name__=="__main__":
     test_addition()
     test_addition_with_bug()
