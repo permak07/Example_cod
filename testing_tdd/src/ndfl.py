@@ -1,2 +1,2 @@
-def calculate_ndfl_lax():
-    return None()
+def calculate_ndfl_lax(param):
+    return None
