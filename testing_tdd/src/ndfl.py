@@ -4,7 +4,7 @@ def calculate_ndfl_lax(param):
         (2_400_000.0,312_000.0, 0.15),
         (5_000_000.0,762_000.0,0.18),
           ]
-    for start,addition, rate in tier:
+    for start,addition, rate in tier[::-1]:
         if param>start:
             return addition+(param-start)*rate
     return
