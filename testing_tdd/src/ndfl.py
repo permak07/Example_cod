@@ -1,2 +1,2 @@
 def calculate_ndfl_lax(param):
-    return None
+    return param * 0.13
