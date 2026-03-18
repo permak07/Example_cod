@@ -1,0 +1,7 @@
+.PHONY: create-structure
+
+create-structure:
+	mkdir -p src tests docx
+	touch src/.gitkeep tests/.gitkeep
+	touch docx/DOMAIN.md README.md .gitignore
+	touch setup.py requirements.txt

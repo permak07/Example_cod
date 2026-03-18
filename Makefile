@@ -3,12 +3,13 @@
 
 create-practice:
 ifndef NAME
-  $(error NAME if not defined)
+	$(error NAME if not defined)
 endif
-  mkdir -p $(NAME)
+	mkdir -p $(NAME)
+	cp PracticeMakefile $(NAME)/Makefile
 
 remove-practice:
 ifndef NAME
-  $(error NAME if not defined)
+	$(error NAME if not defined)
 endif
-  rm -rf $(NAME)
+	rm -rf $(NAME)
