@@ -15,6 +15,14 @@ def _row(x):
     return {"n": n, "c": c, "a": a, "q": q}  # make dict
 
 def _parse_record(line:str):
+    """Parses one record from sales files:
+
+    Parametrs:
+        line: one record about sales `product_name,category,unit_price,quantity`
+
+    Returns:
+        Sales: Information in form dict
+    """
     sale = line.strip().split(",")
     if len(sale) != 4:  #according space all sales have 4 cols
         return None
@@ -24,7 +32,7 @@ def _parse_record(line:str):
     try:
         unit_price = float(sale[2])
         quantity = int(sale[3])
-        if quantity!=sale[3]:
+        if quantity!=sale[3]:#according space quantity is always integer
             return None
     except ValueError:
         return None
