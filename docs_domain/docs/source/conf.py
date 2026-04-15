@@ -15,13 +15,14 @@ release = '0.0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    "myst-parser"
+    "myst_parser"
 ]
 
 sourse_suffic={
-    ".md":"mardown",
+    ".md":"markdown",
     ".rst":"restructuredtext"
 }
+
 templates_path = ['_templates']
 exclude_patterns = []
 
