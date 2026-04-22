@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>sales documentation &#8212; sales 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="quick start" href="QUICKSTART.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="sales-documentation">
+<h1>sales documentation<a class="headerlink" href="#sales-documentation" title="Link to this heading">¶</a></h1>
+<p>Welcome</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="QUICKSTART.html">quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="QUICKSTART.html#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="QUICKSTART.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="HOW_TO_CONTRIBUTE.html">How to contribute</a></li>
+</ul>
+</div>
+<section id="domain">
+<h2>DOMAIN<a class="headerlink" href="#domain" title="Link to this heading">¶</a></h2>
+<p>Пользователь работает с данными о продажах товаров и формирует текстовый сводный отчет. Данный проект предназначен для обучения сотрудников и не предназначен для операционной деятельности. У менеджера, есть возможность формировать данные и ожидаемый результат.</p>
+<section id="id1">
+<h3>Зачем нужен этот документ<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>Этот документ объясняет, <strong>с какими сущностями работает модуль</strong> и <strong>какую задачу он решает</strong>.<br />
+По нему можно понять смысл кода еще до чтения реализации.</p>
+</section>
+<section id="id2">
+<h3>Что считается входными данными<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>Источник данных — текстовый файл в кодировке UTF-8. Каждая строка описывает одну запись о продаже.</p>
+</section>
+<section id="id3">
+<h3>Основные сущности<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p><strong>Продажа:</strong> Одна запись о товаре, включающая: название товара; категорию; цену за единицу; количество.</p>
+<p><strong>Категория:</strong> Группа товаров, по которой нужно считать суммарную стоимость продаж. Примеры: <code class="docutils literal notranslate"><span class="pre">drinks</span></code>, <code class="docutils literal notranslate"><span class="pre">bakery</span></code>, <code class="docutils literal notranslate"><span class="pre">fruit</span></code></p>
+<p><strong>Сумма по позиции:</strong> Стоимость одной записи: <code class="docutils literal notranslate"><span class="pre">unit_price</span> <span class="pre">*</span> <span class="pre">quantity</span></code></p>
+<p><strong>Общая сумма:</strong> Сумма всех корректных записей. При необходимости к ней может применяться скидка в процентах.</p>
+<section id="id4">
+<h4>Отчет<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
+<p>Текстовый результат обработки, который содержит:</p>
+<ul class="simple">
+<li><p>заголовок;</p></li>
+<li><p>суммы по категориям;</p></li>
+<li><p>итоговую сумму.</p></li>
+</ul>
+</section>
+</section>
+<section id="use-case">
+<h3>Use-case<a class="headerlink" href="#use-case" title="Link to this heading">¶</a></h3>
+<p>Пользователь должен иметь возможность:</p>
+<ol class="arabic simple">
+<li><p>получать полную информацию о продажах;</p></li>
+<li><p>работать только с корректными данными о продажах;</p></li>
+<li><p>получать итоговую стоимость всех продаж;</p></li>
+<li><p>выделять продажи с суммой не ниже заданного порога;</p></li>
+<li><p>получать сводку продаж по категориям товаров;</p></li>
+<li><p>получать текстовый отчет по результатам обработки;</p></li>
+<li><p>сохранять подготовленный отчет для дальнейшего использования.</p></li>
+</ol>
+</section>
+<section id="id5">
+<h3>Ограничения области<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p>В этой версии:</p>
+<ul class="simple">
+<li><p>не учитываются налоги;</p></li>
+<li><p>не поддерживаются возвраты;</p></li>
+<li><p>не рассматривается многовалютность;</p></li>
+<li><p>не ведется учет клиентов и склада;</p></li>
+<li><p>нет интеграции с другими системами компании.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">sales</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="QUICKSTART.html">quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HOW_TO_CONTRIBUTE.html">How to contribute</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="QUICKSTART.html" title="next chapter">quick start</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Nikita Permak.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
